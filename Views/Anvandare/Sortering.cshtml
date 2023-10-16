@@ -1,0 +1,52 @@
+﻿<form method="post" asp-action="Sortering">
+    <h2>Bokstavssortering</h2>
+    <div>
+        <button type="submit" name="sortDirection" value="asc">Stigande ordning</button>
+        <button type="submit" name="sortDirection" value="desc">Fallande ordning</button>
+    </div>
+</form>
+
+<table id="userTable" class="table">
+    <thead>
+        <tr>
+            <th>AnvändarID</th>
+            <th>
+                @if (ViewBag.SortColumn == "AnvandarNamn")
+                {
+                    @Html.ActionLink("Användarnamn", "Sortering", new { sortDirection = "toggle" })
+                }
+                else
+                {
+                    @Html.ActionLink("Användarnamn", "Sortering", new { sortDirection = "asc" })
+                }
+            </th>
+            <th>
+                @if (ViewBag.SortColumn == "Epost")
+                {
+                    @Html.ActionLink("Epost", "Sortering", new { sortColumn = "Epost", sortDirection = ViewBag.SortDirection == "asc" ? "desc" : "asc" })
+                }
+                else
+                {
+                    @Html.ActionLink("Epost", "Sortering", new { sortColumn = "Epost", sortDirection = "asc" })
+                }
+            </th>
+            <th>Actions</th>
+            <th>Uppdatera</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.AnvandarID</td>
+                <td>@user.AnvandarNamn</td>
+                <td>@user.Epost</td>
+                <td>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Anvandare", new { id = user.AnvandarID })">Uppdatera</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

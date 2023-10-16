@@ -1,0 +1,47 @@
+﻿@model FilterAnvandareViewModel
+
+<h2>Filtrera användare</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilterAge)
+        @Html.TextBoxFor(model => model.FilterAge, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrera</button>
+}
+
+<h2>Lista över användare</h2>
+
+@if (ViewData["FilteredUsers"] != null)
+{
+    var filteredUsers = ViewData["FilteredUsers"] as List<AnvandarDetalj>;
+    if (filteredUsers.Count > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>AnvändarID</th>
+                    <th>Användarnamn</th>
+                    <th>Epost</th>
+                    <th>Ålder</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var anvandare in filteredUsers)
+                {
+                    <tr>
+                        <td>@anvandare.AnvandarID</td>
+                        <td>@anvandare.AnvandarNamn</td>
+                        <td>@anvandare.Epost</td>
+                        <td>@anvandare.Alder</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Ingen matchande användare hittades.</p>
+    }
+}

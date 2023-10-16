@@ -1,0 +1,60 @@
+﻿@model VinApp.Models.SokAnvandareViewModel;
+
+@{
+    ViewData["Title"] = "SokFunktion";
+}
+
+<h2>Sök efter användare</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.sokText, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.sokText, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.sokText, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Sök" class="btn btn-primary" />
+    </div>
+}
+
+@if (ViewData["FilteredUsers"] != null)
+{
+    var filteredUsers = ViewData["FilteredUsers"] as List<VinApp.Models.AnvandarDetalj>;
+
+    if (filteredUsers.Count > 0)
+    {
+        <h3>Resultat:</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>AnvändarID</th>
+                    <th>Användarnamn</th>
+                    <th>Epost</th>
+                    <th>Ålder</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in filteredUsers)
+                {
+                    <tr>
+                        <td>@user.AnvandarID</td>
+                        <td>@user.AnvandarNamn</td>
+                        <td>@user.Epost</td>
+                        <td>@user.Alder</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Inga matchande användare hittades.</p>
+    }
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}

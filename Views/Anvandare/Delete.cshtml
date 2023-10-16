@@ -1,0 +1,36 @@
+﻿@model VinApp.Models.AnvandarDetalj
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Bekräftelse av radering</h2>
+
+<p>Är du säker på att du vill ta bort denna användare?</p>
+
+<dl class="row">
+    <dt class="col-sm-2">
+        AnvändarID:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.AnvandarID
+    </dd>
+    <dt class="col-sm-2">
+        Användarnamn:
+    </dt>
+    <dd class="col-sm-10">
+        @Model.AnvandarNamn
+    </dd>
+ 
+</dl>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="AnvandarID" />
+    <button type="submit" class="btn btn-danger">Bekräfta borttagning</button>
+    <a asp-action="SelectWithDataSet" class="btn btn-secondary">Avbryt</a>
+</form>

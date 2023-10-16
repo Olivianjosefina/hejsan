@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "VisaData";
+}
+
+<h2>Lista över tillgängliga användare</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>InkopslistaID</th>
+                <th>VinID</th>
+                <th>Antal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detaljer in Model)
+            {
+                <tr>
+                    <td>@detaljer.InkopslistaID</td>
+                    <td>@detaljer.VinID</td>
+                    <td>@detaljer.Antal</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Anvandare", new { id = detaljer.InkopslistaID })">Edit</a> |
+                        <a href="@Url.Action("Details", "Anvandare", new { id = detaljer.InkopslistaID })">Details</a> |
+                        <a href="@Url.Action("Delete", "Anvandare", new { id = detaljer.InkopslistaID })">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Ingen data tillgänglig.</p>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.error))
+{
+    <div class="alert alert-danger">@ViewBag.error</div>
+}

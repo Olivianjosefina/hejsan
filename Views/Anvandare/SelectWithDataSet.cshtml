@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "SelectWithDataSet";
+}
+
+<h2>Lista över tillgängliga användare</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>AnvändarID</th>
+                <th>Användarnamn</th>
+                <th>Epost</th>
+                <th>Ålder</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var anvandare in Model)
+            {
+                <tr>
+                    <td>@anvandare.AnvandarID</td>
+                    <td>@anvandare.AnvandarNamn</td>
+                    <td>@anvandare.Epost</td>
+                    <td>@anvandare.Alder</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Anvandare", new { id = anvandare.AnvandarID })">Edit</a> |
+                        <a href="@Url.Action("Details", "Anvandare", new { id = anvandare.AnvandarID })">Details</a> |
+                        <a href="@Url.Action("Delete", "Anvandare", new { id = anvandare.AnvandarID })">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Ingen data tillgänglig.</p>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.error))
+{
+    <div class="alert alert-danger">@ViewBag.error</div>
+}
