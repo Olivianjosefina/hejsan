@@ -60,10 +60,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/olivianilsson/Projects/VinApp/VinApp/Views/List/VisaData.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGlzdC9WaXNhRGF0YS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/olivianilsson/Projects/VinApp/VinApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -72,8 +68,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/olivianilsson/Projects/VinApp/VinApp/Views/Vin/Inlogg.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmluL0lubG9nZy5jc2h0bWw=
+[/Users/olivianilsson/Projects/VinApp/VinApp/Views/Vin/Vinlista.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVmluL1Zpbmxpc3RhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/olivianilsson/Projects/VinApp/VinApp/Views/_ViewImports.cshtml]

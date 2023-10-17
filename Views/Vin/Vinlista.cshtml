@@ -1,0 +1,40 @@
+﻿@model Vinlista.Models.Vin
+
+@{
+    ViewData["Title"] = "Vin Detaljer";
+}
+
+<h1>Vin Detaljer</h1>
+
+<table>
+    <tr>
+        <td>Namn:</td>
+        <td>@Model.VinNamn</td>
+    </tr>
+    <tr>
+        <td>Typ:</td>
+        <td>@Model.VinTyp</td>
+    </tr>
+    <tr>
+        <td>Årgång:</td>
+        <td>@Model.Argang</td>
+    </tr>
+    <tr>
+        <td>Alkoholhalt (%):</td>
+        <td>@Model.AlkoholHalt</td>
+    </tr>
+    <tr>
+        <td>Pris (kr):</td>
+        <td>@Model.Pris</td>
+    </tr>
+    <tr>
+        <td>Land:</td>
+        <td>@Model.Land</td>
+    </tr>
+    <tr>
+        <td>Producent:</td>
+        <td>@Model.Producent</td>
+    </tr>
+</table>
+
+<a asp-action="Index">Tillbaka till lista</a>

@@ -22,15 +22,15 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\Anvandare\" />
     <None Remove="Views\Vin\" />
-    <None Remove="Views\List\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Anvandare\" />
     <Folder Include="Views\Vin\" />
-    <Folder Include="Views\List\" />
+    <Folder Include="Views\Vin\" />
   </ItemGroup>
 </Project>
